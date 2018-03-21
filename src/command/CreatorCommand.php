@@ -1,6 +1,6 @@
 <?php 
 // src/Command/CreateUserCommand.php
-namespace  Madeny\lhttps\Command;
+namespace  Madeny\lhttps;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
