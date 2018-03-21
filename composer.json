@@ -19,7 +19,7 @@
 
       "autoload-dev": {
         "psr-4": {
-            "madeny\\https\\Test\\": "tests"
+            "madeny\\lhttps\\Test\\": "tests"
         }
     },
 
