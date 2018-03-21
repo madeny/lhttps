@@ -1,7 +1,7 @@
 {
-    "name": "madeny/Easycert",
-    "description": "Create a working https on your local develoment environment with just simple command.",
-    "keywords": ["openssl", "Easy Certificate for localhost, local develoment"],
+    "name": "madeny/lhttps",
+    "description": "Create https for local development environment or localhost.",
+    "keywords": ["https-certificate", "localhost", "root-certificate", "root-ca", "local-development", "local-dev"],
     "license": "MIT",
     "type": "library",
     "authors": [
