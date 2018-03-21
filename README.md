@@ -1,6 +1,6 @@
 
-![Alt text](https://raw.githubusercontent.com/madeny/lhttps/master/lhttps.svg)
-<img src="https://githubusercontent.com/madeny/lhttps/master/lhttps.svg">
+![Alt text](https://raw.githubusercontent.com/madeny/lhttps/master/lhttps.svg?sanitize=true)
+<img src="https://githubusercontent.com/madeny/lhttps/master/lhttps.svg?sanitize=true">
 
 * Make a self-signed Root Certificate Authority for local development.
 
