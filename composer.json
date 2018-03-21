@@ -1,0 +1,26 @@
+{
+    "name": "madeny/Easycert",
+    "description": "Create a working https on your local develoment environment with just simple command.",
+    "keywords": ["openssl", "Easy Certificate for localhost, local develoment"],
+    "license": "MIT",
+    "type": "library",
+    "authors": [
+        {
+            "name": "Madeny Diawara",
+            "email": "me@madeny.me"
+        }
+    ],
+     "autoload": {
+        "classmap": [
+            "src/"
+        ]
+    },
+
+    "require-dev": {
+        "phpunit/phpunit": "^7"
+    },
+    "require": {
+    	"symfony/console": "^4.0",
+    	"symfony/dotenv": "^4.0"
+    }
+}

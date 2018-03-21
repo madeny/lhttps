@@ -1,0 +1,11 @@
+/vendor/
+/deply/
+/.readme
+/goundo.md.conf
+/issuer.conf
+/rootCA.key
+/rootCa.pem
+/rootCA.srl
+/server.csr
+/server.key
+/v3.ext

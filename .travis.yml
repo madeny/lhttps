@@ -1,0 +1,27 @@
+language: php
+
+sudo: required
+addons:
+  apt:
+    packages:
+      - nginx
+php:
+  - 7.1
+  - 7.2
+  - nightly
+env:
+  global:
+    - COMPOSER_NO_INTERACTION=1
+
+matrix:
+  allow_failures:
+    - php: nightly
+install:
+  - composer install --prefer-dist --no-suggest
+
+# before_script:
+#   - composer self-update
+#   - composer install  --no-interaction
+
+script:
+  - ./vendor/bin/phpunit
