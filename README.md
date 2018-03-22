@@ -18,3 +18,8 @@ Just update your nginx config with
 
 *Right now only OSX and Ubuntu are support to create Certificate*
 *But only Mac OSX are support to automatically add your Root Certificate Authority (CA) to the Trusted list*
+
+### Todo Next:
+
+- [ ] Add ubuntu support for auto CA installation.
+- [ ] 
