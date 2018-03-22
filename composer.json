@@ -14,7 +14,7 @@
 
         "classmap": [
             "src/"
-        ],
+        ]
     },
 
       "autoload-dev": {
