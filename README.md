@@ -11,6 +11,7 @@
 
 Your `domain.com.ssl.key` and `domain.com.ssl.crt` will in `cert/live` directory
 
-Just update your nginx config with
+Just update your nginx config with       
+
 `ssl_certificate ‘path/to/‘domain.com.ssl.crt; # `
 `ssl_certificate_key ‘path/to’/domain.com.ssl.key;`
