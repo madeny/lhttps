@@ -8,3 +8,5 @@
 
 * To use it just run : `php lh create domain.com`
 * If you wish to add your rootCA.pem to your Mac OS trusted certificate. Use the a flag `--a` right after domain.com
+
+Your `domain.com.ssl.key` and `domain.com.ssl.crt` will in `cert/live` directory
