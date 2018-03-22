@@ -8,9 +8,10 @@ Something you need https on your local machine to test some functionality of you
 
 ---
 
-Just clone this repository by run this command: `git clone git@github.com:madeny/lhttps.git` from terminal
+Just clone this repository by run this command: `git clone git@github.com:madeny/lhttps.git` from terminal   
+And cd in lhttps direcotry
 
-* To use it just run : `php lh create domain.com`
+* Then run : `php lh create domain.com`
 * If you wish to add your rootCA.pem to your Mac OS trusted certificate. Use the a flag `--a` right after domain.com
 
 Your `domain.com.ssl.key` and `domain.com.ssl.crt` will in `cert/live` directory
