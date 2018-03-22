@@ -21,5 +21,8 @@ Just update your nginx config with
 
 ### Todo Next:
 
-- [ ] Add ubuntu support for auto CA installation.
-- [ ] 
+- [ ] Full support for ubuntu
+- [ ] Support for Windows
+- [ ] Auto deploy certificate for Nginx
+- [ ] Auto deploy certificate for Apache
+- [ ] Auto deploy certificate for Node.js
