@@ -12,9 +12,9 @@
     ],
      "autoload": {
 
-        "classmap": [
-            "src/"
-        ],
+        // "classmap": [
+        //     "src/"
+        // ],
      
          "psr-4": {
             "Madeny\\lhttps\\": "src/"
