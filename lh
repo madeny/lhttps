@@ -3,7 +3,7 @@
 require __DIR__ . '/vendor/autoload.php';
 
 use Symfony\Component\Console\Application;
-use Madeny\lhttps\Command\CreatorCommand;
+use Madeny\lhttps\CreatorCommand;
 
 $app = new Application("<bg=yellow;options=bold>Local https Version 1.0</>");
 $app->add(new CreatorCommand);
