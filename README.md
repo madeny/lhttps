@@ -14,7 +14,7 @@ And cd in lhttps direcotry
 * Then run : `php lh create domain.com`
 * If you wish to add your rootCA.pem to your Mac OS trusted certificate. Use the a flag `--a` right after domain.com
 
-Your `domain.com.ssl.key` and `domain.com.ssl.crt` will in `cert/live` directory
+Your `domain.com.ssl.key` and `domain.com.ssl.crt` will be in `cert/live` directory
 
 Just update your nginx config with       
 `ssl_certificate ‘path/to/‘domain.com.ssl.crt; # `   
