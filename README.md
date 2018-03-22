@@ -6,6 +6,8 @@
 
  Something you need https on your local machine to test some functionality of your application, like payment system but some of them require a valid https. Like stripe. And you can’t use localhost to request a certificate from issuer like Let's Encrypt. So your option is to create a self signed CA. This tool make it easy. 
 
+Just clone this repository by run this command: `git clone git@github.com:madeny/lhttps.git` from terminal
+
 * To use it just run : `php lh create domain.com`
 * If you wish to add your rootCA.pem to your Mac OS trusted certificate. Use the a flag `--a` right after domain.com
 
