@@ -13,7 +13,7 @@ class MakerTest extends TestCase
 		$this->path = Path::all();
 
 		$this->domain = new domain; 
-		$this->domain->setDomainOne('madeny.com');
+		$this->domain->setDomainOne('madeny.me');
 	}
 
 	   /** @test */
