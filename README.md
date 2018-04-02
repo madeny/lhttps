@@ -2,7 +2,7 @@
 ![Alt text](https://raw.githubusercontent.com/madeny/lhttps/master/lhttps.svg?sanitize=true)
 * Make a self-signed Root Certificate Authority for local development.
 
-[![Build Status](https://travis-ci.org/madeny/lhttps.svg?branch=master)](https://travis-ci.org/madeny/lhttps)  [![CircleCI](https://circleci.com/gh/madeny/lhttps.svg?style=svg)](https://circleci.com/gh/madeny/lhttps) ![Alt text](https://raw.githubusercontent.com/madeny/lhttps/master/ubuntu)
+[![Build Status](https://travis-ci.org/madeny/lhttps.svg?branch=master)](https://travis-ci.org/madeny/lhttps)  [![CircleCI](https://circleci.com/gh/madeny/lhttps.svg?style=svg)](https://circleci.com/gh/madeny/lhttps) ![ubuntu](https://raw.githubusercontent.com/madeny/lhttps/master/ubuntu)
 ---
 Sometimes you need https on your local machine to test some functionality of your application, like payment system but some of them require a valid https. Like stripe. And you can’t use localhost to request a certificate from issuer like Let’s Encrypt. So your option is to create a self signed certificate authority (CA). This tool make it easy.
 
