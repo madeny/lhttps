@@ -22,8 +22,10 @@ If you wish to add your rootCA.pem to your Mac OS trusted certificate, use the a
 Your `domain.com.ssl.key` and `domain.com.ssl.crt` will be in `cert/live` directory
 
 Just update your nginx config with       
-`ssl_certificate ‘path/to/‘domain.com.ssl.crt; # `   
-`ssl_certificate_key ‘path/to’/domain.com.ssl.key;`
+```
+ssl_certificate path/to/domain.com.ssl.crt;
+ssl_certificate_key path/to/domain.com.ssl.key;
+```
 
 
 *Right now only OSX and Ubuntu are support to create Certificate*
