@@ -48,11 +48,7 @@ class CreatorCommand extends Command
 
         $domain->setDomainOne($domainName);
 
-        // die(var_dump($domain->getDomainTwo()));
-
         Config::file($path, $domain->getDomainOne(), $domain->getDomainTwo());
-
-      
 
         // generate a root certificate key.
         Maker::keygen($path);

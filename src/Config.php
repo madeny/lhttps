@@ -1,7 +1,6 @@
 <?php 
 namespace Madeny\lhttps;
 
-
 use Madeny\lhttps\Openssl;
 
 class Config{

@@ -9,7 +9,7 @@ class CertificateKeyCreator{
 	public function __construct($path)
 	{
 		exec(
-		"openssl genrsa -des3 -passout pass:none   -out {$path}/keys/root.key  2048 2>/dev/null", $output, $errors);
+		"openssl genrsa -des3 -passout pass:none   -out {$path}/keys/root.key  2048 2>>{$path}/logs/log", $output, $errors);
 		$this->errors = $errors;
 		$this->output = $output;
 	}

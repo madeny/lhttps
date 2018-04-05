@@ -4,6 +4,7 @@ use PHPUnit\Framework\TestCase;
 use Madeny\lhttps\Domain;
 use Madeny\lhttps\Path;
 use Madeny\lhttps\Maker;
+use Madeny\lhttps\Config;
 use Symfony\Component\Dotenv\Dotenv;
 
 class MakerTest extends TestCase
@@ -14,6 +15,10 @@ class MakerTest extends TestCase
 
 		$this->domain = new domain; 
 		$this->domain->setDomainOne('madeny.me');
+
+		Config::file($this->path, $this->domain->getDomainOne(), $this->domain->getDomainTwo());
+
+
 	}
 
 	   /** @test */
@@ -84,10 +89,10 @@ class MakerTest extends TestCase
 		    {
 		    	$request = Maker::request($this->path, $this->domain->getDomainOne());
 
-		    	$process = file_get_contents(realpath($this->path.'/csr/process'));
+		    	$log = file_get_contents(realpath($this->path.'/logs/log'));
 
 		    	// die(var_dump(exec("cat {$process}")));
-		    	if (strpos($process, "values mismatch") == true){
+		    	if (strpos($log, "values mismatch") == true){
 		    		
 		    		echo "\n Please delete your your CA and CAkey and make new one \n";
 

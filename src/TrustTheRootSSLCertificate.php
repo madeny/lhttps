@@ -11,7 +11,7 @@ class TrustTheRootSSLCertificate{
 	function __construct($path, $checker, $option)
 	{
 		if (strpos($checker, "Darwin") !== false) {
-			exec("sudo security add-trusted-cert -d -r trustRoot -k /Library/Keychains/System.keychain {$path}/csr/root.pem", $output, $error);	
+			exec("sudo security add-trusted-cert -d -r trustRoot -k /Library/Keychains/System.keychain {$path}/csr/root.pem 2>>{$path}/logs/log", $output, $error);	
 			$this->error = $error;
 
 		}else{

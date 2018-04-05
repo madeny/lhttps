@@ -32,9 +32,9 @@ class Maker
 	}
 
 
-	public static function trust($path, $checker, $option)
+	public static function trust($path, $OS, $option)
 	{
-		return new  TrustTheRootSSLCertificate($path, $checker, $option);
+		return new  TrustTheRootSSLCertificate($path, $OS, $option);
 	}
 
 	public static function deply($file, $path)
