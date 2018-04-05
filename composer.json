@@ -29,5 +29,6 @@
     "require": {
     	"symfony/console": "^4.0",
     	"symfony/dotenv": "^4.0"
-    }
+    },
+    "bin": ["lh"]
 }
