@@ -1,5 +1,4 @@
 <?php 
-// src/Command/CreateUserCommand.php
 namespace  Madeny\lhttps;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Command\Command;
@@ -23,12 +22,10 @@ class CreatorCommand extends Command
         ->setHelp('This command allows you to create a root certificate...');
 
         $this
-    // ...
     ->addOption(
         'a',
         null,
         InputOption::VALUE_NONE,
-        // InputOption::VALUE_REQUIRED,
         'This will add your root certificate on your OS  trusted list?'
     );
 
@@ -39,7 +36,7 @@ class CreatorCommand extends Command
     {
 
 
-        // All depenciers instance.
+        // Instantiating dependencies
         $path = Path::all();
 
         $domain = new Domain();
@@ -82,17 +79,5 @@ class CreatorCommand extends Command
            $output->writeln('<info>Your certificate is added to your trust list</info>');
        }
 
-       // $trust->getError();
-
-
-
-
-
-       
-       
-
-        // $output->writeln('<info>Your certificate are now trusted</info>');
-
-        // $output->writeln('<error>Sorry this command can only be run on OSX 10.13 or Greater!</error>');
     }
 }
