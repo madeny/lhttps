@@ -4,22 +4,25 @@
 
 [![Build Status](https://travis-ci.org/madeny/lhttps.svg?branch=master)](https://travis-ci.org/madeny/lhttps)  [![CircleCI](https://circleci.com/gh/madeny/lhttps.svg?style=svg)](https://circleci.com/gh/madeny/lhttps) 
 ---
-Sometimes you need https on your local machine to test some functionality of your application, like payment system but some of them require a valid https. Like stripe. And you can’t use localhost to request a certificate from issuer like Let’s Encrypt. So your option is to create a self signed certificate authority (CA). This tool make it easy.
+Sometimes you need https on your local machine to test some functionality of your application, like payment system, but some of them require a valid https. Like stripe. And you can’t use localhost to request a certificate from issuer like Let’s Encrypt, so your option is to create a self signed certificate authority (CA). This tool make it easy.
 
 ---
 
 Just clone this repository by run this command:
 
-`git clone git@github.com:madeny/lhttps.git` 
+```
+git clone git@github.com:madeny/lhttps.git` 
 from terminal and do the following:
 
-* `cd lhttps`
-* `composer install` make sure "dom" and "mbstring" extensions are installed!
-* `php lh create domain.com`
+```
 
-If you wish to add your rootCA.pem to your Mac OS trusted certificate, use the a flag `--a` right after domain.com like so: `php lh create domain.com --a`
+* ```cd lhttps```
+* ```composer install``` make sure "dom" and "mbstring" extensions are installed!
+* ```php lh create domain.com```
 
-Your `domain.com.ssl.key` and `domain.com.ssl.crt` will be in `cert/live` directory
+If you wish to add your rootCA.pem to your Mac OS trusted certificate, use the a flag ```--a``` right after domain.com like so: ```php lh create domain.com --a```
+
+Your ```domain.com.ssl.key``` and ```domain.com.ssl.crt``` will be in ```cert/live``` directory
 
 Just update your nginx config with       
 ```
