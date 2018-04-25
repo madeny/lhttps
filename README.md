@@ -16,7 +16,7 @@ from terminal and do the following:
 ```
 
 * ```cd lhttps     ```
-* ```composer install      ``` make sure "dom" and "mbstring" extensions are installed!
+* ```composer install      ``` 
 * ```php lh create domain.com     ```
 
 If you wish to add your rootCA.pem to your Mac OS trusted certificate, use the a flag ```--a``` right after domain.com like so: ```php lh create domain.com --a```
