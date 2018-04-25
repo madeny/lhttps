@@ -27,6 +27,8 @@
         "phpunit/phpunit": "^7"
     },
     "require": {
+        "ext-dom": "*",
+        "ext-mbstring": "*",
     	"symfony/console": "^4.0",
     	"symfony/dotenv": "^4.0"
     },
