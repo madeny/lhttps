@@ -116,12 +116,12 @@ class MakerTest extends TestCase
 //     	$this->assertEquals($trusted->getError(), 2);
 // 	}
 		/** @test */
-		// public function clearUp()
-		// {
-		// 	$stats = (new TestCleaner($this->path))->getError();
+		public function clearUp()
+		{
+			$stats = (new TestCleaner($this->path))->getError();
 
-		// 	$this->assertEquals(0, $stats);
-		// }
+			$this->assertEquals(0, $stats);
+		}
 
 
 	
