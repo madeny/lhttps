@@ -1,10 +1,11 @@
 <?php 
 declare(strict_types=1);
 use PHPUnit\Framework\TestCase;
-use Madeny\lhttps\Domain;
+use Madeny\lhttps\DomainProvider;
 use Madeny\lhttps\Path;
 use Madeny\lhttps\Maker;
 use Madeny\lhttps\Config;
+use Madeny\lhttps\TestCleaner;
 use Symfony\Component\Dotenv\Dotenv;
 
 class MakerTest extends TestCase
@@ -12,41 +13,43 @@ class MakerTest extends TestCase
 	public function setUp()
 	{
 		$this->path = Path::all();
-
-		$this->domain = new domain; 
-		$this->domain->setDomainOne('madeny.me');
-
+		$this->domain = new DomainProvider; 
+		$this->domain->setDomainOne('example.com');
 		Config::file($this->path, $this->domain->getDomainOne(), $this->domain->getDomainTwo());
-
-
 	}
 
-	   /** @test */
-	public function a_user_can_generate_root_certificate_key()
-	    {
-	    	$rootkey = file_exists($this->path.'/keys/root.key');
-
-	    	if ($rootkey) {
-	    		echo "\n You already have a Root Key I'm using that! \n";
-	    	}else{
-	    		$keygen = Maker::keygen($this->path);
-
-	    		if ($keygen->getError() == 0) {
-	    			echo "\n Key created with success \n";
-	    		}else{
-	    			echo "Something not right";
-	    		}
-
-	    		$rootkey = true;
-	    	}
-
-	    	$this->assertEquals($rootkey, true);
-		}
-
-		/** @test */
-	public function a_user_can_create_root_certificate_authority()
+	public function tearDown()
 	{
 		
+		unset($this->path, $this->domain);
+	}
+
+   	/** @test */
+	public function a_user_can_generate_root_certificate_key()
+    {
+    	$rootkey = file_exists($this->path.'/keys/root.key');
+
+    	if ($rootkey) {
+    		echo "\n You already have a Root Key I'm using that! \n";
+    	}else{
+    		$keygen = Maker::keygen($this->path);
+
+    		if ($keygen->getError() == 0) {
+    			echo "\n Key created with success \n";
+    		}else{
+    			echo "Something not right";
+    		}
+
+    		$rootkey = true;
+    	}
+
+    	$this->assertEquals($rootkey, true);
+	}
+
+	/** @test */
+	public function a_user_can_create_root_certificate_authority()
+	{
+	
 		if (file_exists($this->path.'/csr/root.pem')) {
 			echo "\n You already have a Root Certificate we can use that!";
 		}else{ 
@@ -64,56 +67,62 @@ class MakerTest extends TestCase
 		$this->assertEquals($rootCA, true);
 	}
 
-	   /** @test */
+   /** @test */
 	public function a_user_can_create_certificate_key_for_domain()
-	    {
-	    	$domainkey = file_exists($this->path.'/live/'.$this->domain->getDomainOne().'.ssl.key');
-	    	$domaincsr = file_exists($this->path.'/csr/'.$this->domain->getDomainOne().'.csr');
+    {
+    	$domainkey = file_exists($this->path.'/live/'.$this->domain->getDomainOne().'.ssl.key');
+    	$domaincsr = file_exists($this->path.'/csr/'.$this->domain->getDomainOne().'.csr');
 
-	    	if ($domainkey) {
-	    		echo "\n You already have a key for this domain we can sign this \n";
-	    	}else{ 
-	    		Maker::domain($this->path, $this->domain->getDomainOne(), $this->domain->getDomainTwo());
+    	if ($domainkey) {
+    		echo "\n You already have a key for this domain we can sign this \n";
+    	}else{ 
+    		Maker::domain($this->path, $this->domain->getDomainOne(), $this->domain->getDomainTwo());
 
-	    		$domainkey = true;
-	    		$domaincsr = true;
-	    	}	    	
+    		$domainkey = true;
+    		$domaincsr = true;
+    	}	    	
 
-	    	$this->assertEquals($domainkey, true);
-	    	$this->assertEquals($domaincsr, true);
-		}
+    	$this->assertEquals($domainkey, true);
+    	$this->assertEquals($domaincsr, true);
+	}
 
-
-		   /** @test */
-	public function a_user_can_sign_a_domain_cert_with_root_certificate_authority()
-		    {
-		    	$request = Maker::request($this->path, $this->domain->getDomainOne());
-
-		    	$log = file_get_contents(realpath($this->path.'/logs/log'));
-
-		    	// die(var_dump(exec("cat {$process}")));
-		    	if (strpos($log, "values mismatch") == true){
-		    		
-		    		echo "\n Please delete your your CA and CAkey and make new one \n";
-
-		    		$request->setError(0);
-		    	}
-
-		    	$this->assertEquals($request->getError(), 0);
-
-
-			}
 
 	   /** @test */
-	public function a_user_can_Trust_the_root_SSL_certificate()
+	public function a_user_can_sign_a_domain_cert_with_root_certificate_authority()
 	    {
-	    	$os = exec("uname -a");
+	    	$request = Maker::request($this->path, $this->domain->getDomainOne());
 
-	    	$trusted = Maker::trust($this->path, $os, $option = null);
+	    	$log = file_get_contents(realpath($this->path.'/logs/log'));
 
-	    	$this->assertEquals($trusted->getError(), 2);
+	    	if (strpos($log, "values mismatch") == true){
+	    		
+	    		echo "\n Please delete your your CA and CAkey and make new one \n";
+
+	    		$request->setError(0);
+	    	}
+
+	    	$this->assertEquals($request->getError(), 0);
+
+
+		}
+
+//    /** @test */
+// public function a_user_can_Trust_the_root_SSL_certificate()
+//     {
+//     	$os = exec("uname -a");
+
+//     	$trusted = Maker::trust($this->path, $os, $option = null);
+
+//     	$this->assertEquals($trusted->getError(), 2);
+// 	}
+		/** @test */
+		public function clearUp()
+		{
+			$stats = (new TestCleaner($this->path))->getError();
+
+			$this->assertEquals(0, $stats);
 		}
 
 
-		
+	
 }

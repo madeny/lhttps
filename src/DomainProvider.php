@@ -1,6 +1,6 @@
 <?php 
 namespace Madeny\lhttps;
-class Domain
+class DomainProvider
 {
 
 	protected  $domainOne;

@@ -9,7 +9,7 @@ use Symfony\Component\Console\Input\InputOption;
 use Madeny\lhttps\Config;
 use Madeny\lhttps\Maker;
 use Madeny\lhttps\Path;
-use Madeny\lhttps\Domain;
+use Madeny\lhttps\DomainProvider;
 
 class CreatorCommand extends Command
 {
@@ -39,7 +39,7 @@ class CreatorCommand extends Command
         // Instantiating dependencies
         $path = Path::all();
 
-        $domain = new Domain();
+        $domain = new DomainProvider();
 
         $domainName = $input->getArgument('domainName');
 
