@@ -15,6 +15,7 @@ class MakerTest extends TestCase
 		$this->path = Path::all();
 		$this->domain = new DomainProvider; 
 		$this->domain->setDomainOne('example.com');
+		(new Config);
 		Config::file($this->path, $this->domain->getDomainOne(), $this->domain->getDomainTwo());
 	}
 
