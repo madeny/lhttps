@@ -9,13 +9,24 @@ class Config{
 function __construct()
 {
 
-$folders = ["madeny", "goundo"];
-for($i=0;$i<=$folders[0];$i++) 
-{ 
-mkdir(Path::all().folders[$i]);
+$folders = ['cnf', 'config', 'csr', 'keys', 'live', 'logs'];
+$i = 0;
 
-die(); 
-} 
+foreach ($folders as $key => $value) {
+	
+	if (Path::all()."/".$value) {
+		echo "Folder already exist";
+		return;
+	}else{
+		while ($i < 6) {
+
+  mkdir(Path::all()."/".$folders[$i]);
+  $i++;
+}
+	}
+}
+
+// die();
 }
 
 public static function file($path, $domainOne, $domainTwo)
