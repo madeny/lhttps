@@ -14,7 +14,7 @@ $i = 0;
 
 foreach ($folders as $key => $value) {
 	
-	if (Path::all()."/".$value) {
+	if (file_exists(Path::all()."/".$value)) {
 		echo "Folder already exist";
 		return;
 	}else{
