@@ -15,7 +15,7 @@ $i = 0;
 foreach ($folders as $key => $value) {
 	
 	if (file_exists(Path::all()."/".$value)) {
-		echo "Folder already exist";
+		echo "\n ... managing outputs folders \n";
 		return;
 	}else{
 		while ($i < 6) {

@@ -52,7 +52,7 @@ class MakerTest extends TestCase
 	{
 	
 		if (file_exists($this->path.'/csr/root.pem')) {
-			echo "\n You already have a Root Certificate we can use that!";
+			echo "\n You already have a Root Certificate we can use that! \n";
 		}else{ 
 		 $ca = Maker::create($this->path);
 
@@ -76,6 +76,7 @@ class MakerTest extends TestCase
 
     	if ($domainkey) {
     		echo "\n You already have a key for this domain we can sign this \n";
+
     	}else{ 
     		Maker::domain($this->path, $this->domain->getDomainOne(), $this->domain->getDomainTwo());
 
