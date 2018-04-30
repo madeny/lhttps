@@ -39,6 +39,7 @@ class CreatorCommand extends Command
         // Instantiating dependencies
         $path = Path::all();
 
+        (new Config);
         $domain = new DomainProvider();
 
         $domainName = $input->getArgument('domainName');

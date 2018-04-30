@@ -25,3 +25,4 @@ install:
 
 script:
   - ./vendor/bin/phpunit
+  - cat cert/logs/log
