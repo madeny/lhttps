@@ -11,15 +11,14 @@
         }
     ],
      "autoload": {
-
-        "classmap": [
-            "src/"
-        ]
+        "psr-4": {
+            "Madeny\\lhttps\\": "src/"
+        }
     },
 
       "autoload-dev": {
         "psr-4": {
-            "madeny\\lhttps\\Test\\": "tests"
+            "Madeny\\lhttps\\Test\\": "tests"
         }
     },
 

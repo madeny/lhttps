@@ -1,30 +1,10 @@
 <?php 
 declare(strict_types=1);
-use PHPUnit\Framework\TestCase;
-use Madeny\lhttps\DomainProvider;
-use Madeny\lhttps\Path;
+use Madeny\lhttps\Test\CustomTestCase;
 use Madeny\lhttps\Factory;
-use Madeny\lhttps\Config;
-use Madeny\lhttps\TestCleaner;
-use Symfony\Component\Dotenv\Dotenv;
 
-class FactoryTest extends TestCase
+class FactoryTest extends CustomTestCase
 {
-	public function setUp()
-	{
-		$this->path = Path::all();
-		$this->domain = new DomainProvider; 
-		$this->domain->setDomainOne('example.com');
-		(new Config);
-		Config::file($this->path, $this->domain->getDomainOne(), $this->domain->getDomainTwo());
-	}
-
-	public function tearDown()
-	{
-		
-		unset($this->path, $this->domain);
-	}
-
    	/** @test */
 	public function a_user_can_generate_root_certificate_key()
     {
@@ -68,7 +48,7 @@ class FactoryTest extends TestCase
 		$this->assertEquals($rootCA, true);
 	}
 
-   /** @test */
+    /** @test */
 	public function a_user_can_create_certificate_key_for_domain()
     {
     	$domainkey = file_exists($this->path.'/live/'.$this->domain->getDomainOne().'.ssl.key');
@@ -89,7 +69,7 @@ class FactoryTest extends TestCase
 	}
 
 
-	   /** @test */
+	/** @test */
 	public function a_user_can_sign_a_domain_cert_with_root_certificate_authority()
 	    {
 	    	$request = Factory::request($this->path, $this->domain->getDomainOne());
@@ -104,19 +84,16 @@ class FactoryTest extends TestCase
 	    	}
 
 	    	$this->assertEquals($request->getError(), 0);
-
-
 		}
 
-//    /** @test */
-public function a_user_can_Trust_the_root_SSL_certificate()
-    {
-    	$os = exec("uname -a");
+		/** @test */
+		public function a_user_can_Trust_the_root_SSL_certificate()
+    	{
+    		$os = exec("uname -a");
 
-    	$trusted = Factory::trust($this->path, $os, $option = null);
+    		$trusted = Factory::trust($this->path, $os, $option = null);
 
-    	$this->assertEquals($trusted->getError(), 2);
-	}
-
+    		$this->assertEquals($trusted->getError(), 2);
+		}
 	
 }
