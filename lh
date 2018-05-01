@@ -5,6 +5,8 @@ require __DIR__ . '/vendor/autoload.php';
 use Symfony\Component\Console\Application;
 use Madeny\lhttps\CreatorCommand;
 
+die(var_dump(new CreatorCommand));
+
 $app = new Application("<bg=yellow;options=bold>Local https Version 1.0</>");
 $app->add(new CreatorCommand);
 $app->run();

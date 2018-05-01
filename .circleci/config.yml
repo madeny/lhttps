@@ -37,6 +37,7 @@ jobs:
           key: v1-dependencies-{{ checksum "composer.json" }}
         
       # run tests!
+      - run:  composer dump-autoload -o
       - run:  php lh create --a
       - run: ./vendor/bin/phpunit
       - run:  cat cert/logs/log
