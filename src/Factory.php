@@ -37,10 +37,10 @@ class Factory
 		return new  TrustTheRootSSLCertificate($path, $OS, $option);
 	}
 
-	public static function deply($file, $path)
-	{
-		exec("sudo cp {$file} {$path}");
-	}
+	// public static function deply($file, $path)
+	// {
+	// 	exec("sudo cp {$file} {$path}");
+	// }
 
 }
 

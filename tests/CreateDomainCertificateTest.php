@@ -21,4 +21,11 @@ class CreateDomainCertificateTest extends CustomTestCase{
 
 	    	$this->assertEquals(2, $domainCertificate->getError());
 		}
+		/** @test */
+	public function it_can_return_array_of_output()
+	{
+		$domainCertificate = new CreateDomainCertificate($this->path, $this->domain->getDomainOne());
+
+		$this->assertEquals(0, count($domainCertificate->getOutput()));
+	}
 }

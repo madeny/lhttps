@@ -4,6 +4,7 @@ use PHPUnit\Framework\TestCase;
 use Madeny\lhttps\DomainProvider;
 use Madeny\lhttps\Path;
 use Madeny\lhttps\Config;
+use Madeny\lhttps\Factory;
 use Symfony\Component\Dotenv\Dotenv;
 
 class CustomTestCase extends TestCase {
@@ -22,6 +23,7 @@ class CustomTestCase extends TestCase {
 		$this->domain->setDomainOne('example.com');
 		
 		Config::file($this->path, $this->domain->getDomainOne(), $this->domain->getDomainTwo());
+		$this->factory = new Factory();
 	}
 
 	public function tearDown()

@@ -2,7 +2,6 @@
 declare(strict_types=1);
 use Madeny\lhttps\Test\CustomTestCase;
 use Madeny\lhttps\Factory;
-
 class FactoryTest extends CustomTestCase
 {
    	/** @test */
@@ -25,6 +24,7 @@ class FactoryTest extends CustomTestCase
     	}
 
     	$this->assertEquals($rootkey, true);
+    	$this->assertEquals($this->factory->keygen($this->path)->getError(), 0);
 	}
 
 	/** @test */
@@ -46,6 +46,7 @@ class FactoryTest extends CustomTestCase
 		$rootCA = file_exists($this->path.'/csr/root.pem');
 
 		$this->assertEquals($rootCA, true);
+		$this->assertEquals($this->factory->create($this->path)->getError(), 0);
 	}
 
     /** @test */
@@ -66,6 +67,9 @@ class FactoryTest extends CustomTestCase
 
     	$this->assertEquals($domainkey, true);
     	$this->assertEquals($domaincsr, true);
+
+    	$this->assertEquals($this->factory->domain($this->path, $this->domain->getDomainOne(), $this->domain->getDomainTwo() )->getError(), 0);
+
 	}
 
 
@@ -84,6 +88,7 @@ class FactoryTest extends CustomTestCase
 	    	}
 
 	    	$this->assertEquals($request->getError(), 0);
+	    	$this->assertEquals($this->factory->request($this->path, $this->domain->getDomainOne())->getError(), 0);
 		}
 
 		/** @test */
