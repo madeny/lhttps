@@ -19,6 +19,6 @@ class CreateDomainCertificateTest extends CustomTestCase{
 	    {
 	    	$domainCertificate = new CreateDomainCertificate("fake/path", "fake_domain");
 
-	    	$this->assertEquals(1, $domainCertificate->getError());
+	    	$this->assertEquals(2, $domainCertificate->getError());
 		}
 }

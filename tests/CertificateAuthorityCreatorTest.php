@@ -18,7 +18,7 @@ class CertificateAuthorityCreatorTest extends CustomTestCase{
 	    {
 	    	$certificateAuthority = new CertificateAuthorityCreator("fake/path");
 
-	    	$this->assertEquals(1, $certificateAuthority->getError());
+	    	$this->assertEquals(2, $certificateAuthority->getError());
 		}
 
 	   /** @test */

@@ -17,7 +17,7 @@ class CertificateKeyCreatorTest extends CustomTestCase{
 	    {
 	    	$rsa = new CertificateKeyCreator("fake/path");
 
-	    	$this->assertEquals(1, $rsa->getError());
+	    	$this->assertEquals(2, $rsa->getError());
 		}
 
 	   /** @test */
