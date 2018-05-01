@@ -7,7 +7,7 @@ use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Input\InputOption;
 
 use Madeny\lhttps\Config;
-use Madeny\lhttps\Maker;
+use Madeny\lhttps\Factory;
 use Madeny\lhttps\Path;
 use Madeny\lhttps\DomainProvider;
 
@@ -49,17 +49,17 @@ class CreatorCommand extends Command
         Config::file($path, $domain->getDomainOne(), $domain->getDomainTwo());
 
         // generate a root certificate key.
-        Maker::keygen($path);
+        Factory::keygen($path);
 
         // Create a root certificate authority.
-        Maker::create($path);
+        Factory::create($path);
 
         // Create cert key for a domain.
-        Maker::domain($path, $domain->getDomainOne(), $domain->getDomainTwo());
+        Factory::domain($path, $domain->getDomainOne(), $domain->getDomainTwo());
 
         
         // Request a certificate sign from root certificate authority.
-        Maker::request($path, $domainName);
+        Factory::request($path, $domainName);
 
         $checker = exec("uname -a");
 
@@ -68,7 +68,7 @@ class CreatorCommand extends Command
        if (!$option == true) {
            exit();
        }else{
-        $trust = Maker::trust($path, $checker, $option);
+        $trust = Factory::trust($path, $checker, $option);
        }
 
        // Disply error messages.

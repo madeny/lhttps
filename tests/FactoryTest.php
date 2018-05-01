@@ -3,12 +3,12 @@ declare(strict_types=1);
 use PHPUnit\Framework\TestCase;
 use Madeny\lhttps\DomainProvider;
 use Madeny\lhttps\Path;
-use Madeny\lhttps\Maker;
+use Madeny\lhttps\Factory;
 use Madeny\lhttps\Config;
 use Madeny\lhttps\TestCleaner;
 use Symfony\Component\Dotenv\Dotenv;
 
-class MakerTest extends TestCase
+class FactoryTest extends TestCase
 {
 	public function setUp()
 	{
@@ -33,7 +33,7 @@ class MakerTest extends TestCase
     	if ($rootkey) {
     		echo "\n You already have a Root Key I'm using that! \n";
     	}else{
-    		$keygen = Maker::keygen($this->path);
+    		$keygen = Factory::keygen($this->path);
 
     		if ($keygen->getError() == 0) {
     			echo "\n Key created with success \n";
@@ -54,7 +54,7 @@ class MakerTest extends TestCase
 		if (file_exists($this->path.'/csr/root.pem')) {
 			echo "\n You already have a Root Certificate we can use that! \n";
 		}else{ 
-		 $ca = Maker::create($this->path);
+		 $ca = Factory::create($this->path);
 
 		 if ($ca->getError() == 0) {
 			echo "\n Certificate create success \n";
@@ -74,11 +74,11 @@ class MakerTest extends TestCase
     	$domainkey = file_exists($this->path.'/live/'.$this->domain->getDomainOne().'.ssl.key');
     	$domaincsr = file_exists($this->path.'/csr/'.$this->domain->getDomainOne().'.csr');
 
-    	if ($domainkey) {
+    	if ($domainkey && $domaincsr) {
     		echo "\n You already have a key for this domain we can sign this \n";
 
     	}else{ 
-    		Maker::domain($this->path, $this->domain->getDomainOne(), $this->domain->getDomainTwo());
+    		Factory::domain($this->path, $this->domain->getDomainOne(), $this->domain->getDomainTwo());
 
     		$domainkey = true;
     		$domaincsr = true;
@@ -92,7 +92,7 @@ class MakerTest extends TestCase
 	   /** @test */
 	public function a_user_can_sign_a_domain_cert_with_root_certificate_authority()
 	    {
-	    	$request = Maker::request($this->path, $this->domain->getDomainOne());
+	    	$request = Factory::request($this->path, $this->domain->getDomainOne());
 
 	    	$log = file_get_contents(realpath($this->path.'/logs/log'));
 
@@ -109,22 +109,14 @@ class MakerTest extends TestCase
 		}
 
 //    /** @test */
-// public function a_user_can_Trust_the_root_SSL_certificate()
-//     {
-//     	$os = exec("uname -a");
+public function a_user_can_Trust_the_root_SSL_certificate()
+    {
+    	$os = exec("uname -a");
 
-//     	$trusted = Maker::trust($this->path, $os, $option = null);
+    	$trusted = Factory::trust($this->path, $os, $option = null);
 
-//     	$this->assertEquals($trusted->getError(), 2);
-// 	}
-		/** @test */
-		// public function clearUp()
-		// {
-		// 	$stats = (new TestCleaner($this->path))->getError();
-
-		// 	$this->assertEquals(0, $stats);
-		// }
-
+    	$this->assertEquals($trusted->getError(), 2);
+	}
 
 	
 }

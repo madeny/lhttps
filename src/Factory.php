@@ -5,7 +5,7 @@ use Madeny\lhttps\CertificateAuthorityCreator;
 use Madeny\lhttps\CreateDomainCertificate;
 use Madeny\lhttps\CertificateSigningRequest;
 use Madeny\lhttps\TrustTheRootSSLCertificate;
-class Maker
+class Factory
 {
 	// Generate a RSA-2048 key and save it to a file rootCA.key. This file will be used as the key to generate the Root SSL certificate. You 
 	public static function keygen($path)

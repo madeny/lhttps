@@ -6,31 +6,29 @@ use Madeny\lhttps\Path;
 
 class Config{
 
-function __construct()
-{
+	function __construct()
+	{
 
-$folders = ['cnf', 'config', 'csr', 'keys', 'live', 'logs'];
-$i = 0;
+		$folders = ['cnf', 'config', 'csr', 'keys', 'live', 'logs'];
+		$i = 0;
 
-foreach ($folders as $key => $value) {
-	
-	if (file_exists(Path::all()."/".$value)) {
-		echo "\n ... managing outputs folders \n";
-		return;
-	}else{
-		while ($i < 6) {
+		foreach ($folders as $key => $value) {
+			
+			if (file_exists(Path::all()."/".$value)) {
+				echo "\n ... checking output folders \n";
+				return;
+			}else {
+				while ($i < 6) {
 
-  mkdir(Path::all()."/".$folders[$i]);
-  $i++;
-}
+					mkdir(Path::all()."/".$folders[$i]);
+					$i++;
+				}
+			}
+		}
 	}
-}
 
-// die();
-}
-
-public static function file($path, $domainOne, $domainTwo)
-{
-	return new Openssl($path, $domainOne, $domainTwo);
-}
+	public static function file($path, $domainOne, $domainTwo)
+	{
+		return new Openssl($path, $domainOne, $domainTwo);
+	}
 }
