@@ -15,7 +15,7 @@ class TrustTheRootSSLCertificate{
 			$this->error = $error;
 
 		}else{
-			return $this->error = 2;
+			return $this->error = 1;
 		}
 		
 	}

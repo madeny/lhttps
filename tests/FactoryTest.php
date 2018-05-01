@@ -93,7 +93,7 @@ class FactoryTest extends CustomTestCase
 
     		$trusted = Factory::trust($this->path, $os, $option = null);
 
-    		$this->assertEquals($trusted->getError(), 2);
+    		$this->assertEquals($trusted->getError(), 1);
 		}
 	
 }

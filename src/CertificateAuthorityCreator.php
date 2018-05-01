@@ -19,5 +19,10 @@ class CertificateAuthorityCreator{
 	{
 		return $this->error;
 	}
+
+	public function getOutput()
+	{
+		return $this->output;
+	}
 }
 
