@@ -6,7 +6,7 @@ require __DIR__ . '/src/command/CreatorCommand.php';
 use Symfony\Component\Console\Application;
 use Madeny\lhttps\CreatorCommand;
 
-die(var_dump(new CreatorCommand));
+#die(var_dump(new CreatorCommand));
 
 $app = new Application("<bg=yellow;options=bold>Local https Version 1.0</>");
 $app->add(new CreatorCommand);
