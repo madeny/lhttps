@@ -6,7 +6,6 @@ use PHPUnit\Framework\TestCase;
 class CreateTest extends TestCase {
 
 	/** @test */
-<<<<<<< HEAD
 	public function single_create_command () {
 
 	exec("php lh create test.dev", $output, $error);
@@ -16,17 +15,3 @@ class CreateTest extends TestCase {
 	}
 
 }
-=======
-	public function create_test() {
-
-		exec("php lh create test.dev", $output, $error);
-
-
-		var_dump($error);
-
-		$this->assertEquals(1, $error());
-
-		
-	} 
-}
->>>>>>> 8551acea69fff97acb96d2b8be229c5c4e054f11
