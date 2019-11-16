@@ -24,7 +24,7 @@ class FactoryTest extends CustomTestCase
     	}
 
     	$this->assertEquals($rootkey, true);
-    	$this->assertEquals($this->factory->keygen($this->path)->getError(), 0);
+    	$this->assertEquals($this->factory->keygen($this->path)->errors, 0);
 	}
 
 	/** @test */
@@ -46,7 +46,7 @@ class FactoryTest extends CustomTestCase
 		$rootCA = file_exists($this->path.'/csr/root.pem');
 
 		$this->assertEquals($rootCA, true);
-		$this->assertEquals($this->factory->create($this->path)->getError(), 0);
+		$this->assertEquals($this->factory->create($this->path)->errors, 0);
 	}
 
     /** @test */

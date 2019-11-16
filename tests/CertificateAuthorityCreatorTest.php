@@ -12,7 +12,7 @@ class CertificateAuthorityCreatorTest extends CustomTestCase{
 	    	$certificateAuthority = new CertificateAuthorityCreator($this->path);
 
 
-	    	$this->assertEquals(0, $certificateAuthority->getError());
+	    	$this->assertEquals(0, $certificateAuthority->errors);
 		}
 
 	   /** @test */
@@ -20,7 +20,7 @@ class CertificateAuthorityCreatorTest extends CustomTestCase{
 	    {
 	    	$certificateAuthority = new CertificateAuthorityCreator("fake/path");
 
-	    	$this->assertEquals(2, $certificateAuthority->getError());
+	    	$this->assertEquals(2, $certificateAuthority->errors);
 		}
 
 	   /** @test */
@@ -28,7 +28,7 @@ class CertificateAuthorityCreatorTest extends CustomTestCase{
 	    {
 	    	$certificateAuthority = new CertificateAuthorityCreator($this->path);
 
-	    	$this->assertEquals(0, count($certificateAuthority->getOutput()));
+	    	$this->assertEquals(0, count($certificateAuthority->output));
 		}
 
 }

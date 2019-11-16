@@ -9,7 +9,7 @@ class CertificateKeyCreatorTest extends CustomTestCase{
 	    {
 	    	$rsa = new CertificateKeyCreator($this->path);
 
-	    	$this->assertEquals(0, $rsa->getError());
+	    	$this->assertEquals(0, $rsa->errors);
 		}
 
 	   /** @test */
@@ -17,7 +17,7 @@ class CertificateKeyCreatorTest extends CustomTestCase{
 	    {
 	    	$rsa = new CertificateKeyCreator("fake/path");
 
-	    	$this->assertEquals(2, $rsa->getError());
+	    	$this->assertEquals(2, $rsa->errors);
 		}
 
 	   /** @test */
@@ -25,7 +25,7 @@ class CertificateKeyCreatorTest extends CustomTestCase{
 	    {
 	    	$rsa = new CertificateKeyCreator($this->path);
 
-	    	$output = count($rsa->getOutput());
+	    	$output = count($rsa->output);
 
 	    	$this->assertEquals(0, $output);
 		}
