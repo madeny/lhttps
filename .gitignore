@@ -1,9 +1,12 @@
 /vendor/
 /deply/
 /.readme
+/.env
 /cert/cnf/
 /cert/config/
 /cert/csr/
 /cert/keys/
 /cert/logs/
 /cert/live/
+/@eaDir
+./@eaDir
