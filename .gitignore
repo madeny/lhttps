@@ -3,6 +3,7 @@
 /.readme
 /.env
 /cert/cnf/
+./cert/@eaDir
 /cert/config/
 /cert/csr/
 /cert/keys/
