@@ -7,7 +7,7 @@ class Openssl
 	public function __construct($path, $domain)
 	{
 	
-		$v3 = [
+	$v3 = [
 			'authorityKeyIdentifier=keyid,issuer',
 			'basicConstraints=CA:FALSE',
 			'keyUsage = digitalSignature, nonRepudiation, keyEncipherment, dataEncipherment',

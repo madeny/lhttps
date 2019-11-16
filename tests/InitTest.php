@@ -11,7 +11,7 @@ class InitTest extends TestCase {
 
 		$path = Path::all();
 
-		$init = new Init();
+		$init = new Init("madeny.dev");
 
 		$dirs = $init->dirs;
 
@@ -30,9 +30,9 @@ class InitTest extends TestCase {
 
 	   	$path = Path::all();
 
-	   	$init = new Init();
-
 	   	$domain = "madeny.test";
+
+	   	$init = new Init($domain);
 
 	   	$init->execute($domain);
 

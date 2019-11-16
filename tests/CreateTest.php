@@ -8,7 +8,7 @@ class CreateTest extends TestCase {
 	/** @test */
 	public function single_create_command () {
 
-	exec("php lh create test.dev", $output, $error);
+	exec("php lh create madeny.dev", $output, $error);
 
 	$this->assertEquals(0, $error);
 
