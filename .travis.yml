@@ -4,19 +4,19 @@ sudo: required
 addons:
   apt:
     packages:
-      - nginx
+      # - nginx
 php:
-  - 7.1
-  - 7.2
+  # - 7.1
+  # - 7.2
   - 7.3
-  - nightly
+  # - nightly
 env:
   global:
     - COMPOSER_NO_INTERACTION=1
 
 matrix:
   allow_failures:
-    - php: nightly
+    # - php: nightly
 install:
   - composer install --prefer-dist --no-suggest
 
