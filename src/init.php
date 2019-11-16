@@ -1,5 +1,5 @@
-<?php  namespace Madeny\lhttps;
-
+<?php  
+namespace Madeny\lhttps;
 use Madeny\lhttps\Path;
 use Madeny\lhttps\Openssl;
 use Symfony\Component\Dotenv\Dotenv;
