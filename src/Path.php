@@ -1,15 +1,16 @@
-<?php 
-
-namespace Madeny\lhttps;
-
+<?php namespace Madeny\lhttps;
 class Path{
 
-
-// need refactory.
 	public static function all()
 	{
-		$path = realpath(__DIR__.'/../cert');
-		return $path;
+		$dir = __DIR__.'/../cert';
+		if (!file_exists($dir)) {
+			mkdir($dir);
+		}
+		return $dir;
 	}
 
 }
+
+
+
