@@ -19,7 +19,8 @@ matrix:
 install:
   - composer install --prefer-dist --no-suggest
 
-# before_script:
+before_script:
+    - cp ./example.env ./.env
 #   - composer self-update
 #   - composer install  --no-interaction
 
