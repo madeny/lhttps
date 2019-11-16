@@ -27,4 +27,4 @@ before_script:
 
 script:
   - ./vendor/bin/phpunit
-  - cat cert/logs/log
+  - cat ./cert/logs/log.sign
