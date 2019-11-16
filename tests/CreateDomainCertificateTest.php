@@ -9,7 +9,7 @@ class CreateDomainCertificateTest extends CustomTestCase{
 	public function it_can_create_domain_certificate()
 	    {
 	    	$domainCertificate = 
-	    	new CreateDomainCertificate($this->path, $this->domain->getDomainOne());
+	    	new CreateDomainCertificate($this->path, $this->domain->getdomain());
 
 	    	$this->assertEquals(0, $domainCertificate->getError());
 		}
@@ -24,7 +24,7 @@ class CreateDomainCertificateTest extends CustomTestCase{
 		/** @test */
 	public function it_can_return_array_of_output()
 	{
-		$domainCertificate = new CreateDomainCertificate($this->path, $this->domain->getDomainOne());
+		$domainCertificate = new CreateDomainCertificate($this->path, $this->domain->getdomain());
 
 		$this->assertEquals(0, count($domainCertificate->getOutput()));
 	}

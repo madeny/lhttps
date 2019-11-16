@@ -20,9 +20,9 @@ class CustomTestCase extends TestCase {
 
 		$this->domain = new DomainProvider; 
 
-		$this->domain->setDomainOne('example.com');
+		$this->domain->setdomain('example.com');
 		
-		Config::file($this->path, $this->domain->getDomainOne(), $this->domain->getDomainTwo());
+		Config::file($this->path, $this->domain->getdomain());
 		$this->factory = new Factory();
 	}
 

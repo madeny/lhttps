@@ -20,9 +20,9 @@ class Factory
 	}
 
 
-	public static function domain($path, $domainOne, $domainTwo)
+	public static function domain($path, $domain)
 	{
-		return new CreateDomainCertificate($path, $domainOne, $domainTwo);
+		return new CreateDomainCertificate($path, $domain);
 	}
 
 

@@ -27,8 +27,8 @@ class Config{
 		}
 	}
 
-	public static function file($path, $domainOne, $domainTwo)
+	public static function file($path, $domain)
 	{
-		return new Openssl($path, $domainOne, $domainTwo);
+		return new Openssl($path, $domain);
 	}
 }

@@ -40,13 +40,14 @@ class CreatorCommand extends Command
         $path = Path::all();
 
         (new Config);
+
         $domain = new DomainProvider();
 
         $domainName = $input->getArgument('domainName');
 
-        $domain->setDomainOne($domainName);
+        $domain->setdomain($domainName);
 
-        Config::file($path, $domain->getDomainOne(), $domain->getDomainTwo());
+        Config::file($path, $domain->getdomain());
 
         // generate a root certificate key.
         Factory::keygen($path);
@@ -55,7 +56,7 @@ class CreatorCommand extends Command
         Factory::create($path);
 
         // Create cert key for a domain.
-        Factory::domain($path, $domain->getDomainOne(), $domain->getDomainTwo());
+        Factory::domain($path, $domain->getdomain());
 
         
         // Request a certificate sign from root certificate authority.

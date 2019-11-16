@@ -3,29 +3,18 @@ namespace Madeny\lhttps;
 class DomainProvider
 {
 
-	protected  $domainOne;
-	protected  $domainTwo;
+	protected  $domain;
 
-	public function getDomainOne()
+	public function getdomain()
 	{
-		$this->domainOne = trim(preg_replace('/\s\s+/', ' ', $this->domainOne));
+		$this->domain = trim(preg_replace('/\s\s+/', ' ', $this->domain));
 		
-		return $this->domainOne;
+		return $this->domain;
 	}
 
-		public function getDomainTwo()
+	public function setdomain($domain)
 	{
-		$this->domainTwo = 'www.'.$this->domainOne;
-		
-		return $this->domainTwo;
-	}
 
-	public function setDomainOne($domainOne)
-	{
-			if (!$domainOne) {
-				$this->domainOne = "localhost";
-			}else{
-				$this->domainOne = $domainOne;
-			}
+		!$domain ? $this->domain = "localhost" : $this->domain = $domain;  
 	}
 }

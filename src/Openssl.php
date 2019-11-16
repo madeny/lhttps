@@ -4,7 +4,7 @@ use Symfony\Component\Dotenv\Dotenv;
 class Openssl
 {
 
-	public function __construct($path, $domainOne, $domainTwo)
+	public function __construct($path, $domain)
 	{
 	
 		$v3 = [
@@ -13,8 +13,7 @@ class Openssl
 			'keyUsage = digitalSignature, nonRepudiation, keyEncipherment, dataEncipherment',
 			'subjectAltName = @alt_names',
 			"[alt_names]",
-			"DNS.1 = {$domainOne}",
-			"DNS.2 = {$domainTwo}"
+			"DNS.1 = {$domain}"
 		];
 
 		$str = implode("\n", $v3);

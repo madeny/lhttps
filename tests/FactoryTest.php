@@ -52,14 +52,14 @@ class FactoryTest extends CustomTestCase
     /** @test */
 	public function a_user_can_create_certificate_key_for_domain()
     {
-    	$domainkey = file_exists($this->path.'/live/'.$this->domain->getDomainOne().'.ssl.key');
-    	$domaincsr = file_exists($this->path.'/csr/'.$this->domain->getDomainOne().'.csr');
+    	$domainkey = file_exists($this->path.'/live/'.$this->domain->getdomain().'.ssl.key');
+    	$domaincsr = file_exists($this->path.'/csr/'.$this->domain->getdomain().'.csr');
 
     	if ($domainkey && $domaincsr) {
     		echo "\n You already have a key for this domain we can sign this \n";
 
     	}else{ 
-    		Factory::domain($this->path, $this->domain->getDomainOne(), $this->domain->getDomainTwo());
+    		Factory::domain($this->path, $this->domain->getdomain());
 
     		$domainkey = true;
     		$domaincsr = true;
@@ -68,7 +68,7 @@ class FactoryTest extends CustomTestCase
     	$this->assertEquals($domainkey, true);
     	$this->assertEquals($domaincsr, true);
 
-    	$this->assertEquals($this->factory->domain($this->path, $this->domain->getDomainOne(), $this->domain->getDomainTwo() )->getError(), 0);
+    	$this->assertEquals($this->factory->domain($this->path, $this->domain->getdomain() )->getError(), 0);
 
 	}
 
@@ -76,7 +76,7 @@ class FactoryTest extends CustomTestCase
 	/** @test */
 	public function a_user_can_sign_a_domain_cert_with_root_certificate_authority()
 	    {
-	    	$request = Factory::request($this->path, $this->domain->getDomainOne());
+	    	$request = Factory::request($this->path, $this->domain->getdomain());
 
 	    	$log = file_get_contents(realpath($this->path.'/logs/log'));
 
@@ -88,7 +88,7 @@ class FactoryTest extends CustomTestCase
 	    	}
 
 	    	$this->assertEquals($request->getError(), 0);
-	    	$this->assertEquals($this->factory->request($this->path, $this->domain->getDomainOne())->getError(), 0);
+	    	$this->assertEquals($this->factory->request($this->path, $this->domain->getdomain())->getError(), 0);
 		}
 
 		/** @test */
