@@ -26,7 +26,8 @@ class CreatorCommand extends Command
         'a',
         null,
         InputOption::VALUE_NONE,
-        'This will add your root certificate on your OS  trusted list?'
+        // 'This will add your root certificate on your OS  trusted list?'
+        'Config your certificate for trust policy.'
     );
 
 
@@ -74,11 +75,11 @@ class CreatorCommand extends Command
 
        // Disply error messages.
        if ( $trust->getError() == 2) {
-           $output->writeln('<error>Sorry this host not support!</error>');
+           $output->writeln('<error>Sorry this host is not support!</error>');
        }elseif ($trust->getError() == 1) {
-            $output->writeln('<info>Fail to add your certificate to trust list you can do it manually</info>');
+            $output->writeln('<info>Fail to config your certificate for trust policy. see help for more information</info>');
        }elseif ($trust->getError() == 0) {
-           $output->writeln('<info>Your certificate is added to your trust list</info>');
+           $output->writeln('<info>Your certificate is configured</info>');
        }
 
     }

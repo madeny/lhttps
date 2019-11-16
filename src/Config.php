@@ -15,7 +15,12 @@ class Config{
 		foreach ($folders as $key => $value) {
 			
 			if (file_exists(Path::all()."/".$value)) {
-				echo "\n ... checking output folders \n";
+				echo "Path to your certificates >> ".Path::all()."/live"."\n";
+				exec("ls ".Path::all()."/live", $outpout, $error);
+				foreach ($outpout as $value) {
+					echo $value."\n";
+				}
+				echo "----------------------- \n";
 				return;
 			}else {
 				while ($i < 6) {
@@ -32,3 +37,4 @@ class Config{
 		return new Openssl($path, $domain);
 	}
 }
+
