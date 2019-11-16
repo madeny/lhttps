@@ -3,6 +3,7 @@
 * Create a Certifcate Authority that can be use to issue certificate for domains.
 
 [![Build Status](https://travis-ci.org/madeny/lhttps.svg?branch=master)](https://travis-ci.org/madeny/lhttps)  [![CircleCI](https://circleci.com/gh/madeny/lhttps.svg?style=svg)](https://circleci.com/gh/madeny/lhttps) 
+[![BCH compliance](https://bettercodehub.com/edge/badge/madeny/lhttps?branch=master)](https://bettercodehub.com/)
 ---
 Sometimes you need https on your local machine to test some functionality of your application, like payment system, but some of them require a valid https. Like stripe. And you can’t use localhost to request a certificate from issuer like Let’s Encrypt, so your option is to create a self signed certificate authority (CA). This tool make it easy.
 
