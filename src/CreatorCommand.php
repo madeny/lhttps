@@ -40,7 +40,10 @@ class CreatorCommand extends Command
 
       $sign = $init->make($domain);
 
-      $sign == 0 ? 
+      $info = $output->writeln('<info>Your certificate is configured</info>');
+
+      // $sign == 0 ? $info : "No" ;
+      var_dump($sign);
 
     }
 }
