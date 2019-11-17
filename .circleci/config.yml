@@ -41,4 +41,4 @@ jobs:
       - run:  composer dump-autoload -o
       - run:  php lh create --a
       - run: ./vendor/bin/phpunit
-      - run:  cat cert/logs/log
+      - run:  cat ./cert/logs/log.sign
