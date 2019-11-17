@@ -52,14 +52,23 @@ class Init {
 
 	public function make($domain)
 	{
-
 		$path = Config::path();
-		
-		$rootkey = !file_exists($path."/keys/root.key") ? $this->keygen($path) :  0;
-		$ca = !file_exists($path."/csr/root.pem") ? $this->ca($path) :  0;
-		$dom = !file_exists($path."/live/$domain.ssl.key") ? $this->domain($path, $domain) :  0;
 
-		$sign = !file_exists($path."/live/$domain.ssl.crt") ? $this->sign($path, $domain) :  0;
+		$rootkey = $path."/keys/root.key";
+
+		$ca = $path."/csr/root.pem";
+
+		$dom = $path."/live/$domain.ssl.key";
+
+		$sign = $path."/live/$domain.ssl.crt";
+
+		!file_exists($rootkey) ? $this->keygen($path) :  0;
+
+		!file_exists($ca) ? $this->ca($path) :  0;
+
+		!file_exists($dom) ? $this->domain($path, $domain) :  0;
+
+		return !file_exists($sign) ? $this->sign($path, $domain) :  0;
 	}
 
 }
