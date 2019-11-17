@@ -40,51 +40,5 @@ class CreatorCommand extends Command
 
       $init->execute($domain);
 
-
-        // Instantiating dependencies
-        // $path = Path::all();
-
-        // (new Config);
-
-        // $domain = new DomainProvider();
-
-        // $domainName = $input->getArgument('domainName');
-
-        // $domain->setdomain($domainName);
-
-        // Config::file($path, $domain->getdomain());
-
-        // generate a root certificate key.
-        // Factory::keygen($path);
-
-        // Create a root certificate authority.
-        // Factory::create($path);
-
-        // Create cert key for a domain.
-        // Factory::domain($path, $domain->getdomain());
-
-        
-        // Request a certificate sign from root certificate authority.
-       //  Factory::request($path, $domainName);
-
-       //  $checker = exec("uname -a");
-
-       //  $option = $input->getOption('a');
-
-       // if (!$option == true) {
-       //     exit();
-       // }else{
-       //  $trust = Factory::trust($path, $checker, $option);
-       // }
-
-       // Disply error messages.
-       // if ( $trust->getError() == 2) {
-       //     $output->writeln('<error>Sorry this host is not support!</error>');
-       // }elseif ($trust->getError() == 1) {
-       //      $output->writeln('<info>Fail to config your certificate for trust policy. see help for more information</info>');
-       // }elseif ($trust->getError() == 0) {
-       //     $output->writeln('<info>Your certificate is configured</info>');
-       // }
-
     }
 }
