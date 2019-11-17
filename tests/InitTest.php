@@ -9,7 +9,7 @@ class InitTest extends TestCase {
 	/** @test */
 	public function init_cert_directory () {
 
-		$path = Path::all();
+		$path = Path::get();
 
 		$init = new Init("madeny.dev");
 
@@ -28,7 +28,7 @@ class InitTest extends TestCase {
 	   function  it_can_create_and_sign_domain()
 	   {
 
-	   	$path = Path::all();
+	   	$path = Path::get();
 
 	   	$domain = "madeny.test";
 

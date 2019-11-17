@@ -10,7 +10,7 @@ class ConfigTest extends TestCase {
 	/** @test */
 	public function it_can_generate_v3 () {
 
-		$path = Path::all();
+		$path = Path::get();
 
 		$init = new Init("madeny.dev");
 
@@ -25,7 +25,7 @@ class ConfigTest extends TestCase {
 	   function  it_can_generate_openssl_config()
 	   {
 
-	   	$path = Path::all();
+	   	$path = Path::get();
 
 	   	$init = new Config($path, "madeny.dev");
 

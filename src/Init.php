@@ -12,7 +12,7 @@ class Init {
 	function __construct($domain) {
 		$i = 0;
 
-		$path = Path::all();
+		$path = Path::get();
 
 		foreach ($this->dirs as $value) {
 
@@ -30,7 +30,7 @@ class Init {
 
 	public function execute($domain)
 	{
-		$path = Path::all();
+		$path = Path::get();
 		(new Config($path, $domain));
 		echo shell_exec(__DIR__."/bash/script.sh $path $domain");
 	}

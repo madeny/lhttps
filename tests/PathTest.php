@@ -7,7 +7,7 @@ class PathTest extends TestCase {
 	/** @test */
 	public function init_cert_directory () {
 		
-	$path = Path::all();
+	$path = Path::get();
 
 	$dir = file_exists($path);
 

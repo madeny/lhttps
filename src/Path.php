@@ -1,7 +1,7 @@
 <?php namespace Madeny\lhttps;
 class Path{
 
-	public static function all()
+	public static function get()
 	{
 		$dir = __DIR__.'/../cert';
 		if (!file_exists($dir)) {
