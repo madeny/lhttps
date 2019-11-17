@@ -10,3 +10,6 @@
 /cert/live/
 *./@eaDir
 **/@eaDir
+.srl
+*/.srl
+**/.srl
