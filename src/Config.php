@@ -1,40 +1,55 @@
 <?php 
 namespace Madeny\lhttps;
+use Symfony\Component\Dotenv\Dotenv;
+class Config
+{
 
-use Madeny\lhttps\Openssl;
-use Madeny\lhttps\Path;
-
-class Config{
-
-	function __construct()
+	public function __construct($path, $domain)
 	{
+		$this->v3($path, $domain);
+		$this->openssl($path);  
 
-		$folders = ['cnf', 'config', 'csr', 'keys', 'live', 'logs'];
-		$i = 0;
-
-		foreach ($folders as $key => $value) {
-			
-			if (file_exists(Path::all()."/".$value)) {
-				echo "Path to your certificates >> ".Path::all()."/live"."\n";
-				exec("ls ".Path::all()."/live", $outpout, $error);
-				foreach ($outpout as $value) {
-					echo $value."\n";
-				}
-				echo "----------------------- \n";
-				return;
-			}else {
-				while ($i < 6) {
-
-					mkdir(Path::all()."/".$folders[$i]);
-					$i++;
-				}
-			}
-		}
 	}
 
-	public static function file($path, $domain)
+	private function v3($path, $domain)
 	{
-		return new Openssl($path, $domain);
+		$v3 = [
+		'authorityKeyIdentifier=keyid,issuer',
+		'basicConstraints=CA:FALSE',
+		'keyUsage = digitalSignature, nonRepudiation, keyEncipherment, dataEncipherment',
+		'subjectAltName = @alt_names',
+		"[alt_names]",
+		"DNS.1 = {$domain}"
+		];
+
+		$str = implode("\n", $v3);
+		file_put_contents($path.'/cnf/v3.ext', $str);
+		
 	}
+
+	private function openssl($path)
+	{
+		$dotenv = new Dotenv();
+		$dotenv->load(realpath(__DIR__.'/../.env'));
+		$arr = [
+		getenv('R'),
+		getenv('D'),
+		getenv('P'),
+		getenv('DM'),
+		getenv('DN'),
+		getenv('D2'),
+		getenv('COUNTRY'),
+		getenv('STATE'),
+		getenv('LOCALITY'),
+		getenv('ORGANIZATION'),
+		getenv('ORGANIZATION_UNIT'),
+		getenv('EMAILADDRESS'),
+		getenv('COMMONNAME')];
+
+		$str = implode("\n", $arr);
+		file_put_contents($path.'/cnf/openssl.cnf', $str);
+	}
+	
 }
+
 

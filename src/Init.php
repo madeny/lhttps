@@ -1,7 +1,7 @@
 <?php  
 namespace Madeny\lhttps;
 use Madeny\lhttps\Path;
-use Madeny\lhttps\Openssl;
+use Madeny\lhttps\Config;
 use Symfony\Component\Dotenv\Dotenv;
 
 //  Init the necessary file and folder
@@ -11,20 +11,19 @@ class Init {
 
 	function __construct($domain) {
 		$i = 0;
+
 		$path = Path::all();
 
 		foreach ($this->dirs as $value) {
 
-			if (file_exists($path."/".$value)) {
-
-				return;
-		}else {
+			if (!file_exists($path."/".$value)) {
 				while ($i < 6) {
-
 					mkdir($path."/".$this->dirs[$i]);
 					$i++;
 				}
+				return;
 			}
+
 		}
 	}
 
@@ -32,8 +31,7 @@ class Init {
 	public function execute($domain)
 	{
 		$path = Path::all();
-
-		(new Openssl($path, $domain));
+		(new Config($path, $domain));
 		echo shell_exec(__DIR__."/bash/script.sh $path $domain");
 	}
 
