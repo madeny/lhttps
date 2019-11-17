@@ -78,9 +78,6 @@ class InitTest extends TestCase {
 			
 		}
 
-
-
-
 	   /** @test */
 	   function  it_can_create_and_sign_domain()
 	   {

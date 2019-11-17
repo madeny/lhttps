@@ -32,4 +32,15 @@ class ConfigTest extends TestCase {
 
 		}
 
+
+		/** @test */
+		function it_can_return_a_path()
+		{
+
+			$this->assertEquals(1, file_exists(Config::path()));
+			
+		}
+
+
+
 } 
