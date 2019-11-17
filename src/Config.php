@@ -4,8 +4,9 @@ use Symfony\Component\Dotenv\Dotenv;
 class Config
 {
 
-	public function __construct($path, $domain)
+	public function __construct($domain)
 	{
+		$path = $this->path(); 
 		$this->v3($path, $domain);
 		$this->openssl($path);  
 
@@ -48,6 +49,15 @@ class Config
 
 		$str = implode("\n", $arr);
 		file_put_contents($path.'/cnf/openssl.cnf', $str);
+	}
+
+	public static function path()
+	{
+		$dir = __DIR__.'/../cert';
+		if (!file_exists($dir)) {
+			mkdir($dir);
+		}
+		return $dir;
 	}
 	
 }

@@ -2,7 +2,6 @@
 
 declare(strict_types=1);
 use PHPUnit\Framework\TestCase;
-use Madeny\lhttps\Path;
 use Madeny\lhttps\Config;
 use Madeny\lhttps\Init;
 class ConfigTest extends TestCase {
@@ -10,7 +9,7 @@ class ConfigTest extends TestCase {
 	/** @test */
 	public function it_can_generate_v3 () {
 
-		$path = Path::get();
+		$path = Config::path();
 
 		$init = new Init("madeny.dev");
 
@@ -25,7 +24,7 @@ class ConfigTest extends TestCase {
 	   function  it_can_generate_openssl_config()
 	   {
 
-	   	$path = Path::get();
+	   	$path = Config::path();
 
 	   	$init = new Config($path, "madeny.dev");
 

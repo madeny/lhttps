@@ -2,14 +2,14 @@
 
 declare(strict_types=1);
 use PHPUnit\Framework\TestCase;
-use Madeny\lhttps\Path;
+use Madeny\lhttps\Config;
 use Madeny\lhttps\Init;
 class InitTest extends TestCase {
 
 	/** @test */
 	public function init_cert_directory () {
 
-		$path = Path::get();
+		$path = Config::path();
 
 		$init = new Init("madeny.dev");
 
@@ -28,7 +28,7 @@ class InitTest extends TestCase {
 	   function  it_can_create_and_sign_domain()
 	   {
 
-	   	$path = Path::get();
+	   	$path = Config::path();
 
 	   	$domain = "madeny.test";
 
