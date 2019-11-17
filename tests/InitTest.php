@@ -44,4 +44,4 @@ class InitTest extends TestCase {
 
 		}
 
-} // InitTest {}
+} 

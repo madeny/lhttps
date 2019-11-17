@@ -33,4 +33,4 @@ class ConfigTest extends TestCase {
 
 		}
 
-} // InitTest {}
+} 
