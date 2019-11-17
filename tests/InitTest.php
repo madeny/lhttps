@@ -82,13 +82,13 @@ class InitTest extends TestCase {
 	   function  it_can_create_and_sign_domain()
 	   {
 
-	   	$path = Config::path();
-
 	   	$domain = "madeny.dev";
+
+	   	$path = Config::path();
 
 	   	$init = new Init($domain);
 
-	   	$init->execute($domain);
+	   	$init->make($domain);
 
 	   	$file = ['madeny.dev.ssl.crt', 'madeny.dev.ssl.key'];
 

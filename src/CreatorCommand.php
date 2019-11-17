@@ -38,7 +38,7 @@ class CreatorCommand extends Command
 
       $init = new Init($domain);
 
-      $init->execute($domain);
+      $init->make($domain);
 
     }
 }

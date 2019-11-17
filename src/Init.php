@@ -50,11 +50,16 @@ class Init {
 	}
 
 
-	public function execute($domain)
+	public function make($domain)
 	{
+
 		$path = Config::path();
-		(new Config($path, $domain));
-		echo shell_exec(__DIR__."/../scripts/script.sh $path $domain");
+		
+		$rootkey = !file_exists($path."/keys/root.key") ? $this->keygen($path) :  0;
+		$ca = !file_exists($path."/csr/root.pem") ? $this->ca($path) :  0;
+		$dom = !file_exists($path."/live/$domain.ssl.key") ? $this->domain($path, $domain) :  0;
+
+		$sign = !file_exists($path."/live/$domain.ssl.crt") ? $this->sign($path, $domain) :  0;
 	}
 
 }
