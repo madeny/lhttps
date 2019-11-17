@@ -40,7 +40,7 @@ class CreatorCommand extends Command
 
       $sign = $init->make($domain);
 
-      if (!$sign == 0) {
+      if ($sign == 0) {
         $output->writeln('<error>Domain already exist!</error>');
       } else {
         $msg = exec("ls ".__DIR__."/../cert");
