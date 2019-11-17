@@ -40,10 +40,12 @@ class CreatorCommand extends Command
 
       $sign = $init->make($domain);
 
-      $info = $output->writeln('<info>Your certificate is configured</info>');
-
-      // $sign == 0 ? $info : "No" ;
-      var_dump($sign);
+      if (!$sign == 0) {
+        $output->writeln('<error>Domain already exist!</error>');
+      } else {
+        $msg = exec("ls ".__DIR__."/../cert");
+        $output->writeln("<info>Certificate created successfully!</info>");
+      }
 
     }
 }
