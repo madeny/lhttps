@@ -2,7 +2,7 @@
 ![Alt text](https://raw.githubusercontent.com/madeny/lhttps/master/lhttps.svg?sanitize=true)
 * Create a Certifcate Authority that can be use to issue certificate for domains.
 
-[![Actions Status](https://github.com/madeny/lhttps/workflows/.github/workflows/php.yml/badge.svg)](https://github.com/madeny/lhttps/actions)
+[![Actions Status](https://raw.githubusercontent.com/madeny/lhttps/dev/.github/workflows/php.yml/badge.svg)](https://github.com/madeny/lhttps/actions)
 [![Build Status](https://travis-ci.org/madeny/lhttps.svg?branch=master)](https://travis-ci.org/madeny/lhttps)
 [![CircleCI](https://circleci.com/gh/madeny/lhttps.svg?style=svg)](https://circleci.com/gh/madeny/lhttps) 
 [![BCH compliance](https://bettercodehub.com/edge/badge/madeny/lhttps?branch=master)](https://bettercodehub.com/)
