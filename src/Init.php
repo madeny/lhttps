@@ -28,11 +28,33 @@ class Init {
 	}
 
 
+	public function keygen($path)
+	{
+		echo shell_exec(__DIR__."/../scripts/keygen.sh $path");
+	}
+
+
+	public function ca($path)
+	{
+		echo shell_exec(__DIR__."/../scripts/ca.sh $path");
+	}
+
+	public function domain($path, $domain)
+	{
+		echo shell_exec(__DIR__."/../scripts/domain.sh $path $domain");
+	}
+
+	public function sign($path, $domain)
+	{
+		echo shell_exec(__DIR__."/../scripts/sign.sh $path $domain");
+	}
+
+
 	public function execute($domain)
 	{
 		$path = Config::path();
 		(new Config($path, $domain));
-		echo shell_exec(__DIR__."/bash/script.sh $path $domain");
+		echo shell_exec(__DIR__."/../scripts/script.sh $path $domain");
 	}
 
 }
