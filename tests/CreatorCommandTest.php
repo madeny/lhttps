@@ -12,7 +12,7 @@ class CreatorCommandTest extends TestCase {
 	}
 
 
-		/** @test7 */
+	/** @test7 */
 	public function it_can_run_execute_method () {
 
 		$path  = Config::path();

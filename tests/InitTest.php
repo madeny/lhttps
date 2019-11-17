@@ -6,6 +6,12 @@ use Madeny\lhttps\Config;
 use Madeny\lhttps\Init;
 class InitTest extends TestCase {
 
+
+	/** @test */
+	public function it_can_instance_CreatorCommand () {
+		$this->assertInstanceOf(Init::class, (new Init("madeny.dev")));
+	}
+
 	/** @test */
 	public function init_cert_directory () {
 
