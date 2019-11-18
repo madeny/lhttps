@@ -6,10 +6,11 @@ addons:
     packages:
       # - nginx
 php:
-  - 7.1
-  - 7.2
-  - 7.3
-  - 5.6
+  - 7.0
+  # - 7.1
+  # - 7.2
+  # - 7.3
+  # - 5.6
   # - nightly
 env:
   global:
@@ -17,7 +18,8 @@ env:
 
 matrix:
   allow_failures:
-    - php: 5.6
+    # - php: 5.6
+    # - php: 7.0
 install:
   - composer install --prefer-dist --no-suggest
 
