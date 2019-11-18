@@ -30,23 +30,31 @@ class Init {
 
 	public function keygen($path)
 	{
-		echo shell_exec(__DIR__."/../scripts/keygen.sh $path");
+		exec(__DIR__."/../scripts/keygen.sh $path", $output, $error);
+
+		return $error;
 	}
 
 
 	public function ca($path)
 	{
-		echo shell_exec(__DIR__."/../scripts/ca.sh $path");
+		exec(__DIR__."/../scripts/ca.sh $path", $output, $error);
+
+		return $error;
 	}
 
 	public function domain($path, $domain)
 	{
-		echo shell_exec(__DIR__."/../scripts/domain.sh $path $domain");
+		exec(__DIR__."/../scripts/domain.sh $path $domain", $output, $error);
+
+		return $error;
 	}
 
 	public function sign($path, $domain)
 	{
-		echo shell_exec(__DIR__."/../scripts/sign.sh $path $domain");
+		exec(__DIR__."/../scripts/sign.sh $path $domain", $output, $error);
+
+		return $error;
 	}
 
 
@@ -62,13 +70,13 @@ class Init {
 
 		$sign = $path."/live/$domain.ssl.crt";
 
-		!file_exists($rootkey) ? $this->keygen($path) :  0;
+		!file_exists($rootkey) ? $this->keygen($path) :  1;
 
-		!file_exists($ca) ? $this->ca($path) :  0;
+		!file_exists($ca) ? $this->ca($path) :  1;
 
-		!file_exists($dom) ? $this->domain($path, $domain) :  0;
+		!file_exists($dom) ? $this->domain($path, $domain) :  1;
 
-		return !file_exists($sign) ? $this->sign($path, $domain) :  0;
+		return !file_exists($sign) ? $this->sign($path, $domain) :  1;
 	}
 
 }
