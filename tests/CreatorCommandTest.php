@@ -6,7 +6,7 @@ use Madeny\lhttps\CreatorCommand;
 use Madeny\lhttps\Config;
 class CreatorCommandTest extends TestCase {
 
-	/** @test6 */
+	/** @test */
 	public function it_can_instance_CreatorCommand () {
 		$this->assertInstanceOf(CreatorCommand::class, (new CreatorCommand()));
 	}

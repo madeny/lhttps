@@ -8,7 +8,7 @@ class Config
 	{
 		$path = $this->path(); 
 		$this->v3($path, $domain);
-		$this->openssl($path);  
+		$this->openssl($path);
 
 	}
 
@@ -25,6 +25,8 @@ class Config
 
 		$str = implode("\n", $v3);
 		file_put_contents($path.'/cnf/v3.ext', $str);
+
+		return $str;
 		
 	}
 
@@ -32,23 +34,25 @@ class Config
 	{
 		$dotenv = new Dotenv();
 		$dotenv->load(realpath(__DIR__.'/../.env'));
+
 		$arr = [
-		getenv('R'),
-		getenv('D'),
-		getenv('P'),
-		getenv('DM'),
-		getenv('DN'),
-		getenv('D2'),
-		getenv('COUNTRY'),
-		getenv('STATE'),
-		getenv('LOCALITY'),
-		getenv('ORGANIZATION'),
-		getenv('ORGANIZATION_UNIT'),
-		getenv('EMAILADDRESS'),
-		getenv('COMMONNAME')];
+		$_ENV['R'],
+		$_ENV['D'],
+		$_ENV['P'],
+		$_ENV['DM'],
+		$_ENV['DN'],
+		$_ENV['D2'],
+		$_ENV['COUNTRY'],
+		$_ENV['STATE'],
+		$_ENV['LOCALITY'],
+		$_ENV['ORGANIZATION'],
+		$_ENV['ORGANIZATION_UNIT'],
+		$_ENV['EMAILADDRESS'],
+		$_ENV['COMMONNAME']];
 
 		$str = implode("\n", $arr);
 		file_put_contents($path.'/cnf/openssl.cnf', $str);
+		return $str;
 	}
 
 	public static function path()

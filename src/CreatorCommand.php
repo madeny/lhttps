@@ -11,11 +11,12 @@ use Madeny\lhttps\Init;
 
 class CreatorCommand extends Command
 {
+    protected static $defaultName = 'HTTPS:Certificate Generator';
     protected function configure()
     {
         $this
         ->setName('create')
-        ->addArgument("domain", InputArgument::OPTIONAL, 'Add a custom domain name defualt domain is localhost')
+        ->addArgument("domain", InputArgument::REQUIRED, 'Add a custom domain name defualt domain is localhost')
         ->setDescription('Creates a new certificate.')
         ->setHelp('This command allows you to create a root certificate...');
 
@@ -46,6 +47,8 @@ class CreatorCommand extends Command
         $msg = exec("ls ".__DIR__."/../cert");
         $output->writeln("<info>Certificate created successfully!</info>");
       }
+
+      return 0;
 
     }
 }

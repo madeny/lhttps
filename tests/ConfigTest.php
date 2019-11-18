@@ -6,7 +6,7 @@ use Madeny\lhttps\Config;
 use Madeny\lhttps\Init;
 class ConfigTest extends TestCase {
 
-	/** @test */
+	/** @test8 */
 	public function it_can_instance_Config_class () {
 		$this->assertInstanceOf(Config::class, (new Config("madeny.dev")));
 	}
