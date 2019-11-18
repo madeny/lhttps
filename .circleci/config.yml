@@ -39,6 +39,6 @@ jobs:
       # run tests!
       - run:  cp ./example.env ./.env
       - run:  composer dump-autoload -o
-      - run:  php lh create --a
+      - run:  php lh create madeny.dev --a
       - run: ./vendor/bin/phpunit
       - run:  cat ./cert/logs/log.sign

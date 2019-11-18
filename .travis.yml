@@ -27,4 +27,5 @@ before_script:
 
 script:
   - ./vendor/bin/phpunit
+  - php lh create madeny.dev --a
   - cat ./cert/logs/log.sign
