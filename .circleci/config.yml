@@ -11,6 +11,7 @@ jobs:
       - image: circleci/php:7.1-browsers
       - image: circleci/php:7.2-browsers
       - image: circleci/php:7.3-browsers
+      - image: circleci/php:5.6-browsers
       
       # Specify service dependencies here if necessary
       # CircleCI maintains a library of pre-built images
