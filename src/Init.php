@@ -28,11 +28,12 @@ class Init {
 	}
 
 
-	public function keygen($path)
+	public function keygen($path) : Int
 	{
 		exec(__DIR__."/../scripts/keygen.sh $path", $output, $error);
 
 		return $error;
+		
 	}
 
 

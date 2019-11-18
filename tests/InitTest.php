@@ -38,9 +38,11 @@ class InitTest extends TestCase {
 
 	   	$init = new Init("madeny.dev");
 
-	   	$init->keygen($path);
+	   	$log = $init->keygen($path);
 
 	   	$this->assertEquals(1, file_exists($path."/keys/root.key")); 
+
+	   	$this->assertEquals(0, $log); 
 	   		
 		}
 
@@ -51,22 +53,27 @@ class InitTest extends TestCase {
 
 			$init = new Init("madeny.dev");
 
-			$init->ca($path);
+			$log = $init->ca($path);
 
 			$this->assertEquals(1, file_exists($path."/csr/root.pem")); 
+
+			$this->assertEquals(0, $log); 
 		}
 
 		/** @test */
 		function it_can_generate_domain_cert_key()
 		{
 			$domain = "madeny.dev";
+
 			$path = Config::path();
 
 			$init = new Init($domain);
 
-			$init->domain($path, $domain);
+			$log = $init->domain($path, $domain);
 
 			$this->assertEquals(1, file_exists($path."/live/$domain.ssl.key")); 
+
+			$this->assertEquals(0, $log); 
 			
 		}
 
@@ -74,13 +81,16 @@ class InitTest extends TestCase {
 		function it_can_sign_domain_ssl_key()
 		{
 			$domain = "madeny.dev";
+
 			$path = Config::path();
 
 			$init = new Init($domain);
 
-			$init->sign($path, $domain);
+			$log = $init->sign($path, $domain);
 
 			$this->assertEquals(1, file_exists($path."/live/$domain.ssl.crt")); 
+
+			$this->assertEquals(0, $log); 
 			
 		}
 
@@ -90,17 +100,29 @@ class InitTest extends TestCase {
 
 	   	$domain = "madeny.dev";
 
-	   	$path = Config::path();
-
 	   	$init = new Init($domain);
 
-	   	$init->make($domain);
+	   	$config = new Config($domain);
+
+	   	$path = $config->path();
+
+	   	$log = $init->make($domain);
 
 	   	$file = ['madeny.dev.ssl.crt', 'madeny.dev.ssl.key'];
 
 	   	foreach ($file as $f) {
 	   		$this->assertEquals(1, file_exists($path."/live/".$f));
 	   	}
+
+	   	$sign = file_exists($path."/live/$domain.ssl.crt");
+
+	   	if ($sign == false) {
+	   		$this->assertEquals(0, $log);
+	   	} else {
+	   		$this->assertEquals(1, $log);
+	   	}
+
+	   	
 
 		}
 
