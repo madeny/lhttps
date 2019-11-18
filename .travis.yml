@@ -16,7 +16,7 @@ env:
 
 matrix:
   allow_failures:
-    - nightly
+  - nightly
 install:
   - composer install --prefer-dist --no-suggest
 
