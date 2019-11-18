@@ -9,14 +9,13 @@ php:
   - 7.1
   - 7.2
   - 7.3
-  - nightly
 env:
   global:
     - COMPOSER_NO_INTERACTION=1
 
 matrix:
   allow_failures:
-  - nightly
+  # - nightly
 install:
   - composer install --prefer-dist --no-suggest
 
